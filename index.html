@@ -1,59 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo - {{ cv.nome }}</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
-        .container { max-width: 800px; background: #fff; margin: 0 auto; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; }
-        h1 { color: #2c3e50; margin-bottom: 5px; }
-        .contato { color: #7f8c8d; margin-bottom: 30px; font-size: 0.95em; }
-        h2 { color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 25px; }
-        .item { margin-bottom: 15px; }
-        .titulo-item { font-weight: bold; color: #2c3e50; }
-        .subtitulo-item {color: #555; font-size: 0.9em; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>{{ cv.nome }}</h1>
-        <div class="contato">
-            📍 Belo Horizonte, MG | 📞 {{ cv.telefone }} | ✉️ {{ cv.email }}
-        </div>
+{% extends 'layout.html' %}
 
-        <h2>Formação Acadêmica</h2>
-        {% for ed in cv.educacao %}
-        <div class="item">
-            <div class="titulo-item">{{ ed.curso }}</div>
-            <div class="subtitulo-item">{{ ed.instituicao }} | {{ ed.periodo }}</div>
-        </div>
-        {% endfor %}
+{% block titulo %}Página Inicial | Arthur Bernard{% endblock %}
 
-        <h2>Experiência Profissional</h2>
-        {% for exp in cv.experiencia %}
-        <div class="item">
-            <div class="titulo-item">{{ exp.cargo }}</div>
-            <div class="subtitulo-item">{{ exp.empresa }} | {{ exp.periodo }}</div>
-            <p style="margin: 5px 0 0 0;">{{ exp.atividades }}</p>
-        </div>
-        {% endfor %}
+{% block conteudo %}
+    <h1>Bem-vindo ao meu site!</h1>
+    <p style="text-align: center; font-style: italic; color: #7f8c8d;">Olá, eu sou o Arthur Bernard Ferreira Antunes</p>
+    
+    <p>Sou estudante de tecnologia e um entusiasta do desenvolvimento de software. Este espaço foi criado para compartilhar um pouco da minha jornada, das minhas habilidades profissionais e dos meus planos para o futuro no mundo da programação.</p>
+    
+    <h2>O que eu gosto de fazer</h2>
+    <p>No meu dia a dia, divido meu tempo entre os estudos de tecnologia e os meus hobbies favoritos. Aqui estão algumas das coisas que eu mais curto fazer:</p>
+    <ul>
+        <li><strong>Programar e Codificar:</strong> Criar páginas web, testar novas lógicas e ver códigos ganhando vida na tela.</li>
+        <li><strong>Aprender Tecnologias:</strong> Explorar novas ferramentas, frameworks e entender como os grandes sistemas funcionam.</li>
+        <li><strong>Resolver Desafios:</strong> Encontrar soluções para problemas de lógica e melhorar a estrutura de projetos.</li>
+        <li><strong>Hobbies Pessoais:</strong> Ouvir música, acompanhar novidades sobre tecnologia e aproveitar os momentos de descanso.</li>
+    </ul>
 
-        <h2>Cursos e Certificações</h2>
-        <ul>
-            {% for curso in cv.cursos %}
-            <li>{{ curso }}</li>
-            {% endfor %}
-        </ul>
-
-        <h2>Idiomas</h2>
-        <ul>
-            {% for idm in cv.idiomas %}
-            <li><strong>{{ idm.idioma or idm.entry }}:</strong> {{ idm.nivel }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+    <p style="margin-top: 25px; text-align: center;">Navegue pelo menu superior para conhecer o meu <strong>Currículo</strong> e as minhas <strong>Expectativas de Vida</strong>!</p>
+{% endblock %}
